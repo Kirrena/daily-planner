@@ -37,7 +37,16 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
   planArea.addClass('col-lg-10 col-md-10 col-sm-10 description');
   var textArea = $('<span>');
   textArea.addClass("textArea");
-  planArea.append(textArea);
+  if(officeHours[i]<actualDate.format("HH")){
+     planArea.addClass("past");  
+   }
+  else if(officeHours[i]==actualDate.format("HH")){
+    planArea.addClass("present");
+  }
+  else{
+    planArea.addClass("future");
+  }
+   planArea.append(textArea);
   timeBlock.append(planArea);
   //create save button
   var saveButtonDiv = $('<div>');
