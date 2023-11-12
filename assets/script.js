@@ -16,7 +16,7 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
   for (var i = 0; i < officeHours.length; i++) {
     // Create a new <div> for each time block
     var timeBlock = $('<div>');
-    timeBlock.addClass('row');
+    timeBlock.addClass("row time-block");
      
   
     container.append(timeBlock);
@@ -67,9 +67,9 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
 
 }
 
-//add eventListener to save button to retrieve event
+//add eventListener to save button to store event
 $(".saveBtn").on("click",function(e){
    var event = $(this).parent().siblings(".textarea").val();
-   var storedEvent = $(this).parent().siblings(".hour").val().concat(event);
-   localStorage.setItem("event", storedEvent);
+   var key = $(this).parent().siblings(".hour").text();
+   localStorage.setItem(key,event);
 });
