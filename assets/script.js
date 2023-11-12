@@ -63,6 +63,13 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
   saveButtonDiv.append(saveButton);
   //append button to row as 3.child
   timeBlock.append(saveButtonDiv);
+
+
 }
 
-
+//add eventListener to save button to retrieve event
+$(".saveBtn").on("click",function(e){
+   var event = $(this).parent().siblings(".textarea").val();
+   var storedEvent = $(this).parent().siblings(".hour").val().concat(event);
+   localStorage.setItem("event", storedEvent);
+});
