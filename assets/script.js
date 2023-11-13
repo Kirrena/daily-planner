@@ -16,7 +16,7 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
   for (var i = 0; i < officeHours.length; i++) {
     // Create a new <div> for each time block
     var timeBlock = $('<div>');
-    timeBlock.addClass("row time-block");
+    timeBlock.addClass('row time-block');
      
   
     container.append(timeBlock);
@@ -69,7 +69,34 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
 
 //add eventListener to save button to store event
 $(".saveBtn").on("click",function(e){
+  //save event
    var event = $(this).parent().siblings(".textarea").val();
+   //save time block hour text as key
    var key = $(this).parent().siblings(".hour").text();
    localStorage.setItem(key,event);
+   
+ 
 });
+
+$(document).ready(function () {
+  // Loop through each time block
+  $(".time-block").each(function () {
+     // Get the time block text
+     var blockText = $(this).find(".hour").text();
+
+     // Retrieve the value from localStorage using the time block text as the key
+     var storedEvent = localStorage.getItem(blockText);
+
+     // If there's a stored value, set it in the right textarea
+     if (storedEvent !== null) {
+        $(this).find(".textarea").val(storedEvent);
+     }
+  });
+});
+
+
+
+
+
+
+
