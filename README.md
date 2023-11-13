@@ -30,7 +30,8 @@ URL:
 https://kirrena.github.io/daily-planner/
 
 ## Screenshot
-
+![daily-planner1](https://github.com/Kirrena/quiz/assets/74355186/df6a8558-1b77-4edf-a82d-c4fe11086582)
+![daily-planner2](https://github.com/Kirrena/quiz/assets/74355186/54c61130-0ed6-4cd2-9431-99cdf6a945b3)
 
 ## License
 MIT license
