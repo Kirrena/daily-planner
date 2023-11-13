@@ -2,6 +2,8 @@
 var currentDay = $("#currentDay");
 //store today date in a variable with dayjs
 var actualDate = dayjs();
+//select header to append submint
+var header = $("header");
 
 //display today date
 currentDay.text(actualDate.format("dddd, MMMM D[th]"));
@@ -59,7 +61,10 @@ var officeHours = [9,10,11,12,13,14,15,16,17];
   saveButtonDiv.addClass('col-lg-1 col-md-1 col-sm-1');
   var saveButton = $('<button>');
   saveButton.addClass('btn btn-block saveBtn');  
-  
+  //add icon to save button
+  var icon = $('<i>');
+  icon.addClass('fas fa-save');
+  saveButton.append(icon);
   saveButtonDiv.append(saveButton);
   //append button to row as 3.child
   timeBlock.append(saveButtonDiv);
@@ -74,8 +79,9 @@ $(".saveBtn").on("click",function(e){
    //save time block hour text as key
    var key = $(this).parent().siblings(".hour").text();
    localStorage.setItem(key,event);
-   
- 
+   var submit = $('<div>');
+   submit.text("Appointment Added to localStorage ☑");
+   header.append(submit); 
 });
 
 $(document).ready(function () {
