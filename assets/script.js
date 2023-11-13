@@ -82,6 +82,10 @@ $(".saveBtn").on("click",function(e){
    var submit = $('<div>');
    submit.text("Appointment Added to localStorage ☑");
    header.append(submit); 
+   //clearing message after 3s
+   setTimeout(function(){
+    submit.remove();
+  }, 3000);
 });
 
 $(document).ready(function () {
@@ -99,6 +103,8 @@ $(document).ready(function () {
      }
   });
 });
+
+
 
 
 
